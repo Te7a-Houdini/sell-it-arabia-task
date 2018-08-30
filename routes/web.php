@@ -17,4 +17,5 @@ Route::group(['namespace' => 'Slack','as' => 'slack.'], function () {
     Route::view('channels/create','slack.channels.create')->name('channels.create');
     Route::post('channels','ChannelsController@store')->name('channels.store');
 
+    Route::get('channels/{id}/invite-member/create','ChannelsInviteMemberController@create')->name('channels.invite-member.create');
 });
