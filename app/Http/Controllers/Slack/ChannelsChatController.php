@@ -56,4 +56,18 @@ class ChannelsChatController extends Controller
 
         return $text;
     }
+
+    public function store(Request $request,$id)
+    {
+        $validatedData = $request->validate([
+            'message' => 'required'
+        ]);
+        
+        app('slack')->chat->postMessage([
+            'channel' => $id,
+            'text' => $validatedData['message']
+        ]);
+
+        return back();
+    }
 }

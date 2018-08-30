@@ -21,5 +21,5 @@ Route::group(['namespace' => 'Slack','as' => 'slack.'], function () {
     Route::post('channels/{id}/invite-member','ChannelsInviteMemberController@store')->name('channels.invite-member.store');
 
     Route::get('channels/{id}/chat','ChannelsChatController@index')->name('channels.chat.index');
-
+    Route::post('channels/{id}/chat','ChannelsChatController@store')->name('channels.chat.store');
 });
