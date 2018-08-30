@@ -10,6 +10,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{$channel['name']}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{count($channel['members'])}} members</h6>
+
           <a href="{{route('slack.channels.invite-member.create',['id' => $channel['id']])}}" class="btn btn-primary">Invite Member</a>
           <a href="#" class="btn btn-danger">Start Chatting</a>
         </div>
