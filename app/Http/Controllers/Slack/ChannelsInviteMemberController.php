@@ -33,4 +33,27 @@ class ChannelsInviteMemberController extends Controller
                     in_array($member['id'], $channel['members']);
                 });
     }
+
+    public function store(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'member' => 'required'
+        ]);
+        
+        $channel = app('slack')->channels->invite([
+            'user' => $validatedData['member'],
+            'channel' => $id
+        ]);
+        
+        if (!$channel['ok']) {
+            return back()->withErrors([
+                'channel or member are not found please try again'
+            ]);
+        }
+        
+        return redirect()->route('slack.channels.index')
+                        ->with('successMessages', [
+                            "member invited to ({$channel['channel']['name']}) successfully"
+                        ]);
+    }
 }

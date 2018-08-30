@@ -5,7 +5,7 @@
 <h1 class="center">Invite Member To ({{$channel['name']}})</h1>
 <br>
 
-<form method="POST" action="{{route('slack.channels.store')}}">
+<form method="POST" action="{{route('slack.channels.invite-member.store',['id' => $channel['id']])}}">
     
     @csrf
 
