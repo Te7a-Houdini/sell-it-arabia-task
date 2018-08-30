@@ -9,6 +9,12 @@ class ChannelsController extends Controller
 {
     public function index()
     {
-
+        $channels = app('slack')->channels->list();
+        
+        throw_unless($channels['ok'],new \Exception('Error Connecting with slack'));
+     
+        return view('slack.channels.index',[
+            'channles' => $channels['channels']
+        ]);
     }
 }
