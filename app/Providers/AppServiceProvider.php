@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('slack',function(){
+            return new \wrapi\slack\slack(
+                config('slack.oauth_token')
+            ); 
+        });
     }
 }
