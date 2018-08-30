@@ -14,7 +14,8 @@ class ChannelsController extends Controller
         throw_unless($channels['ok'], new \Exception('Error Connecting with slack'));
 
         return view('slack.channels.index', [
-            'chunkChannels' => collect($channels['channels'])->chunk(3)
+            'chunkChannels' =>
+            collect($channels['channels'])->sortByDesc('created')->chunk(3)
         ]);
     }
 

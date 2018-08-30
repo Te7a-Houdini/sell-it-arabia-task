@@ -3,7 +3,7 @@
 @section('content')
 
 @foreach($chunkChannels as $channels)
-<div class="row">
+<div class="row" style="margin-top:15px;">
 
     @foreach($channels as $channel)
     <div class="col-sm-4">
