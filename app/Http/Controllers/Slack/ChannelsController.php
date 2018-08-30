@@ -32,7 +32,10 @@ class ChannelsController extends Controller
         if (!$createdChannel['ok']) {
             return back()->withErrors([$createdChannel['detail']]);
         }
-        
-        return redirect()->route('slack.channels.index');
+
+        return redirect()->route('slack.channels.index')
+                        ->with('successMessages', [
+                            'channel created successfully'
+                        ]);
     }
 }

@@ -48,14 +48,27 @@
 
         <main class="py-4 container">
             @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif @yield('content')
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
+            
+            @if (session('successMessages'))
+                <div class="alert alert-success">
+                    <ul>
+                        @foreach (session('successMessages') as $message)
+                        <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @yield('content')
         </main>
     </div>
 </body>
