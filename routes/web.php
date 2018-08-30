@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'Slack','name' => 'slack.'], function () {
+    Route::get('/', 'ChannelsController@index')->name('channels.index');
 });
