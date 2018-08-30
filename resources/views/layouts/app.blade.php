@@ -36,7 +36,7 @@
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                                 <li class="nav-item">
-                                    <a class=" btn btn-success" href="#">Create Channel</a>
+                                    <a class=" btn btn-success" href="{{route('slack.channels.create')}}">Create Channel</a>
                                 </li>
                         </ul>
                     </div>

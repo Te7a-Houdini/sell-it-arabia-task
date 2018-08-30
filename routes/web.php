@@ -11,6 +11,9 @@
 |
 */
 
-Route::group(['namespace' => 'Slack','name' => 'slack.'], function () {
+Route::group(['namespace' => 'Slack','as' => 'slack.'], function () {
+    
     Route::get('/', 'ChannelsController@index')->name('channels.index');
+    
+    Route::view('channels/create','slack.channels.create')->name('channels.create');
 });
