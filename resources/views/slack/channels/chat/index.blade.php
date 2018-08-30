@@ -9,20 +9,23 @@
                 <div class="mesgs">
 
                   <div class="msg_history">
-                    <div class="incoming_msg">
-                      <div class="received_msg">
-                        <div class="received_withd_msg">
-                          <p>Test which is a new approach to have all
-                            solutions</p>
-                          <span class="time_date"> Ahmed Abd El Ftah</span></div>
-                      </div>
-                    </div>
-                    <div class="outgoing_msg">
-                      <div class="sent_msg">
-                        <p>Test which is a new approach to have all
-                          solutions</p>
-                        <span class="time_date">A Testing Member</span> </div>
-                    </div>
+                    @foreach($messages as $message)
+                        @if($message['type'] == 'received')
+                        <div class="incoming_msg">
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                            <p>{{$message['text']}}</p>
+                            <span class="time_date">{{$message['user']['real_name']}}</span></div>
+                        </div>
+                        </div>
+                        @else
+                        <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>{{$message['text']}}</p>
+                            <span class="time_date">{{$message['user']['real_name']}}</span> </div>
+                        </div>
+                        @endif
+                    @endforeach
                     
                   </div>
 
